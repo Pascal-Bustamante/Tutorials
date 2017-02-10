@@ -23,7 +23,10 @@ public class Enemy : LivingEntity {
         while (target != null)
         {
             Vector3 targetPosition = new Vector3(target.position.x, 0, target.position.z);
-            pathfinder.SetDestination(targetPosition);
+            if (!daed)
+            {
+                pathfinder.SetDestination(targetPosition);
+            }
             yield return new WaitForSeconds(refreshRate);
         }
     }

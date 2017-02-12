@@ -24,8 +24,9 @@ public class Enemy : LivingEntity {
         target = GameObject.FindGameObjectWithTag("Player").transform;
         StartCoroutine(UpdatePath());
 	}
-	
-	void Update () {
+
+    void Update()
+    {
         if (Time.time > nextAttackTime)
         {
             float sqrDistanceToTarget = (target.position - transform.position).sqrMagnitude;
@@ -35,6 +36,7 @@ public class Enemy : LivingEntity {
                 StartCoroutine(Attack());
             }
         }
+    }
     
     IEnumerator Attack() {
 

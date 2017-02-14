@@ -17,12 +17,19 @@ public class LivingEntity : MonoBehaviour, IDamageable {
 
     public void TakeHit(float damage, RaycastHit hit)
     {
+        //this will be used to implement particle effects
+        TakeDamage(damage);
+    }
+
+    public void TakeDamage (float damage)
+    {
         health -= damage;
         if (health <= 0 && !dead)
         {
             Die();
         }
     }
+
     protected void Die ()
     {
         dead = true;
